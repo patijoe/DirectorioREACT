@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import {petition} from './service/Petition';
 import Home from './components/Home';
 import UserDetail from './components/UserDetail';
@@ -21,6 +22,10 @@ class App extends React.Component {
 
   componentDidMount(){
     this.fetchPetition();
+
+    // this.setState({
+    //   filterName: JSON.parse(localStorage.getItem('filterName')) || ''
+    // })
   }
 
   fetchPetition(){
@@ -40,7 +45,10 @@ class App extends React.Component {
     const valueInputName = event.currentTarget.value;
     this.setState({
       filterName: valueInputName
-    })
+    }
+    // ,
+    // () => localStorage.setItem('filterName', JSON.stringify(this.state.filterName))
+    )
   }
 
   resetNameFilter() {
